@@ -146,7 +146,8 @@ SOFTWARE.
 
         var scale = function() {
             return {
-                x: ($window.width() / minimap.width()) * settings.widthRatio,
+                // x: ($window.width() / minimap.width()) * settings.widthRatio,
+                x: settings.widthRatio,
                 y: ($window.height() / minimap.height()) * settings.heightRatio
             };
         };
@@ -158,12 +159,14 @@ SOFTWARE.
             var sc = 'scale(' + s.x + ','+ s.y + ')';
             var offsetTop = $window.height() * settings.offsetHeightRatio;
 
-            var offsetLeftRight = $window.width() * settings.offsetWidthRatio;
+            // var offsetLeftRight = $window.width() * settings.offsetWidthRatio;
+            var offsetLeftRight = minimap.width() * settings.offsetWidthRatio;
 
             var top = minimap.height() * (s.y - 1) / 2 + offsetTop;
             var leftRight = minimap.width() * (s.x - 1) / 2  + offsetLeftRight;
 
-            var width = $window.width() * (1/s.x) * settings.widthRatio;
+            // var width = $window.width() * (1/s.x) * settings.widthRatio;
+            var width = minimap.width() * (1/s.x) * settings.widthRatio;
             var height = $window.height() * (1/s.y) * settings.heightRatio;
 
             var css = {
